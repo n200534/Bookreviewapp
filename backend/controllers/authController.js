@@ -5,8 +5,7 @@ const { validationResult } = require("express-validator");
 
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
 
-// @desc   Register new user
-// @route  POST /api/auth/register
+
 exports.register = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
@@ -28,8 +27,7 @@ exports.register = async (req, res) => {
   }
 };
 
-// @desc   Login user
-// @route  POST /api/auth/login
+
 exports.login = async (req, res) => {
   const { email, password } = req.body;
 
