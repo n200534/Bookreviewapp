@@ -20,7 +20,6 @@ exports.getAllBooks = async (req, res) => {
   }
 };
 
-
 exports.getBookById = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
@@ -33,7 +32,7 @@ exports.getBookById = async (req, res) => {
   }
 };
 
-//only admin
+// Only admin
 exports.addBook = async (req, res) => {
   const { title, author, description, genre, coverImage } = req.body;
 

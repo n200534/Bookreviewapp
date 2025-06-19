@@ -1,18 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const {
-  getAllBooks,
-  getBookById,
-  addBook,
-} = require("../controllers/bookController");
+const bookController = require("../controllers/bookController");
+const { protect, admin } = require("../middleware/authMiddleware");
 
-const { protect, isAdmin } = require("../middleware/authMiddleware");
+// GET /books - Retrieve all books (with pagination)
+router.get("/", protect, bookController.getAllBooks);
 
+// GET /books/:id - Retrieve a specific book
+router.get("/:id", protect, bookController.getBookById);
 
-router.get("/", getAllBooks);
-router.get("/:id", getBookById);
-
-
-router.post("/", protect, isAdmin, addBook);
+// POST /books - Add a new book (admin only)
+router.post("/", protect, admin, bookController.addBook);
 
 module.exports = router;
