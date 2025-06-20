@@ -51,20 +51,7 @@ const HomePage = ({ onNavigate, onBookSelect }) => {
             >
               Explore Books
             </Button>
-            <Button
-              variant="outlined"
-              size="large"
-              sx={{ 
-                borderColor: 'white',
-                color: 'white',
-                '&:hover': { 
-                  bgcolor: 'rgba(255,255,255,0.1)',
-                  borderColor: 'white'
-                }
-              }}
-            >
-              Join Community
-            </Button>
+          
           </Box>
         </Container>
       </Box>

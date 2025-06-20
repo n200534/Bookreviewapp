@@ -8,7 +8,7 @@ import {
   IconButton,
   Avatar
 } from '@mui/material';
-import { Home, Book, Person } from '@mui/icons-material';
+import { Home, Book, Person, Add } from '@mui/icons-material';
 
 const Navbar = ({ currentPage, onNavigate }) => {
   return (
@@ -41,6 +41,18 @@ const Navbar = ({ currentPage, onNavigate }) => {
             }}
           >
             Books
+          </Button>
+
+          <Button
+            color="inherit"
+            startIcon={<Add />}
+            onClick={() => onNavigate('post-book')}
+            sx={{ 
+              backgroundColor: currentPage === 'post-book' ? 'rgba(255,255,255,0.2)' : 'transparent',
+              '&:hover': { backgroundColor: 'rgba(255,255,255,0.1)' }
+            }}
+          >
+            Post Book
           </Button>
           
           <IconButton

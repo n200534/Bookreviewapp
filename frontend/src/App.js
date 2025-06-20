@@ -5,9 +5,10 @@ import HomePage from './pages/HomePage';
 import BooksListPage from './pages/BookListPage';
 import BookDetailPage from './pages/BookDetailPage';
 import UserProfilePage from './pages/UserProfilePage';
+import PostBookPage from './pages/PostBookPage'; // Import PostBookPage
 import ReviewForm from './components /ReviewForm';
 import Navbar from './components /Navbar';
-import AuthPage from './pages/AuthPage'; // import AuthPage
+import AuthPage from './pages/AuthPage';
 
 const theme = createTheme({
   palette: {
@@ -58,6 +59,16 @@ const App = () => {
         );
       case 'profile':
         return <UserProfilePage />;
+      case 'post-book':
+        return (
+          <PostBookPage
+            onBack={() => setCurrentPage('home')}
+            onBookPosted={() => {
+              setCurrentPage('books');
+              // You can add additional logic here like showing a success message
+            }}
+          />
+        );
       default:
         return <HomePage onNavigate={setCurrentPage} onBookSelect={setSelectedBook} />;
     }
